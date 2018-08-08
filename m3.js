@@ -1,19 +1,19 @@
 var cos = Math.cos
 var sin = Math.sin
 var pi = Math.PI
-function unit() {
+exports.unit = function unit() {
 	return [1,0,0,0,1,0,0,0,1]
 }
-function scale(k){
+exports.scale = function scale(k){
 	return [k,0,0,0,k,0,0,0,1]
 }
-function move(x,y){
+exports.move = function move(x,y){
 	return [1,0,x,0,1,y,0,0,1]
 }
-function rot(a){
+exports.rot = function rot(a){
 	return [cos(a),-sin(a),0,sin(a),cos(a),0,0,0,1]
 }
-function rotp(a,p){
+exports.rotp = function rotp(a,p){
 	return move(p[0],p[1]) * rot(a) * move(-p[0],-p[1])
 }/*
 
@@ -28,7 +28,7 @@ function mmul(a,b){
 	return ans
 }*/
 
-function mmul(a,b) {
+exports.mmul = function mmul(a,b) {
 	return [
 		a[0]*b[0] + a[1]*b[3] + a[2]*b[6],
 		a[3]*b[0] + a[4]*b[3] + a[5]*b[6],
@@ -45,7 +45,7 @@ function mmul(a,b) {
 	]
 }
 
-function pmul(a,b){ // a = matrix ; b = point 
+exports.pmul = function pmul(a,b){ // a = matrix ; b = point 
 	return [
 		a[0]*b[0]+a[1]*b[1]+a[2]*b[2],
 		a[3]*b[0]+a[4]*b[1]+a[5]*b[2],
@@ -60,7 +60,14 @@ class Vector2D(x,y){
 	this.y = y
 	this.z = 1
 }*/
-
+/*
 console.log(mmul(unit(),unit()))
 console.log(mmul([1,0,0,0,1,0,0,0,1],[0,-1,0,-1,0,0,0,0,1]))
 console.log(pmul(unit(),[1,1,1]))
+*/
+
+
+
+
+
+
