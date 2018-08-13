@@ -28,27 +28,30 @@ set_buf("#")
 set_one(0,1,"Q")
 print_buf()
 */
-exports.makebuffer = function(width,height,char){
+exports.makebuffer = function(width,height,char) {
 	var shit = []
 	for (var i = 0;i < width*height;i++) {
 		shit[i] = char
 	}
-	return	{
+	return {
 		width:width,
 		height:height,
 		buf:shit,
 
-		set:function(x,y,char){
-			if (x >= 0 && y >= 0 && x <= this.width-1 && y <= this.height -1){
+		set: function(x,y,char){
+			if (x >= 0 && y >= 0 && x <= this.width-1 && y <= this.height -1) {
 				this.buf[(x+this.width*y)] = char
-		}
-	},
-	print:function(){
-		for(i= 0;i < this.buf.length;){
-			var zeile = ""
-			for(x= 0; x<this.width ; x++){
-				zeile = zeile + this.buf[i]
-				i++
 			}
-			console.log(zeile)
-}}}}  
+		},
+		print: function(){
+			for(i= 0;i < this.buf.length;){
+				var zeile = ""
+				for(x= 0; x<this.width ; x++){
+					zeile = zeile + this.buf[i]
+					i++
+				}
+				console.log(zeile)
+			}
+		}
+	}
+}  
