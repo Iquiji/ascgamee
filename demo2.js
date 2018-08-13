@@ -7,7 +7,7 @@ var cos = Math.cos
 var sin = Math.sin
 var pi = Math.PI
 
-var alpha = [process.stdout.columns/2+8,process.stdout.rows/2+0,1]
+var alpha = [process.stdout.columns/2+12,process.stdout.rows/2+0,1]
 var sun = [process.stdout.columns/2,process.stdout.rows/2,1]
 
 var got = graphx.makebuffer(process.stdout.columns,process.stdout.rows," ")
@@ -27,9 +27,8 @@ while(true){
 	sleep(500)
 	console.log("x:",round(alpha[0]),"y:",round(alpha[1]),"alpha:",alpha)
 	got.set(round(alpha[0]),round(alpha[1])," ")
-	alpha = m3.pmul(m3.rotp(pi,sun),alpha)
+	alpha = m3.pmul(m3.rotp(pi/17,sun),alpha)
 	console.log("next pos at:",alpha)
 	got.set(round(alpha[0]),round(alpha[1]),"I")
 	got.print()
-	return
 }
