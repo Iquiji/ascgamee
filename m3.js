@@ -1,7 +1,9 @@
+"use strict";
+
 var cos = Math.cos
 var sin = Math.sin
 var pi = Math.PI
-var assert = require('./assert.js')
+var assert = require('./assert.js').assert
 
 function mmul(a,b) {
 	var ret = [
@@ -23,7 +25,7 @@ function mmul(a,b) {
 exports.mmul = mmul;
 
 exports.unit = function unit() {
-	return [1,0,0,0,1,0,0,0,1]
+	return [1,0,0, 0,1,0, 0,0,1]
 }
 exports.scale = function scale(k){
 	return [k,0,0,0,k,0,0,0,1]

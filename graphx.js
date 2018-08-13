@@ -1,3 +1,5 @@
+"use strict";
+
 /*
 console.log(process.stdout.columns,process.stdout.rows)
 
@@ -44,9 +46,9 @@ exports.makebuffer = function(width,height,char) {
 			}
 		},
 		print: function(){
-			for(i= 0;i < this.buf.length;){
+			for(var i= 0;i < this.buf.length;){
 				var zeile = ""
-				for(x= 0; x<this.width ; x++){
+				for(var x= 0; x<this.width ; x++){
 					zeile = zeile + this.buf[i]
 					i++
 				}
