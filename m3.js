@@ -1,13 +1,7 @@
 var cos = Math.cos
 var sin = Math.sin
 var pi = Math.PI
-
-function assert() {
-	if (!arguments[0]) {
-		console.log("Assertion failed: ", arguments)
-		process.exit(1)
-	}
-}
+var assert = require('./assert.js')
 
 function mmul(a,b) {
 	var ret = [
