@@ -4,7 +4,7 @@ var cos = Math.cos
 var sin = Math.sin
 var pi = Math.PI
 var assert = require('./assert.js').assert
-
+var m3_test = require('./assert.js')
 function mmul(a,b) {
 	var ret = [
 		a[0]*b[0] + a[1]*b[3] + a[2]*b[6],
@@ -19,7 +19,7 @@ function mmul(a,b) {
 		a[6]*b[1] + a[7]*b[4] + a[8]*b[7],
 		a[6]*b[2] + a[7]*b[5] + a[8]*b[8],
 	];
-	//assert(ret[8] == 1, "last mmul result element is not one", a, b, ret);
+	//assert(ret[8] == 1, "last mmul result element is not one", a, b, ret,"mmul");
 	return ret;
 }
 exports.mmul = mmul;
@@ -44,10 +44,6 @@ exports.rot = rot;
 exports.rotp = function rotp(a,p){
 	var x = p[0]
 	var y = p[1]
-	/*
-	console.log("rot p", a, p, [cos(a),-sin(a),cos(a)*(-x) - sin(a)* -y +x,sin(a),cos(a),sin(a) * -x +sin(a) * -y +y,0,0,1])
-	return [cos(a),-sin(a),cos(a)*(-x) - sin(a)* -y +x,sin(a),cos(a),sin(a) * -x +sin(a) * -y +y,0,0,1]
-	*/
 	var result = mmul(mmul(move(x, y), rot(a)), move(-x, -y))
 	console.log("rot-p:", a, p, result, cos(a), sin(a))
 	return result
@@ -70,17 +66,9 @@ exports.pmul = function pmul(a,b){ // a = matrix ; b = point
 		a[6]*b[0]+a[7]*b[1]+a[8]*b[2],
 	]
 
-	assert(result[2] == 1, "last element is not one", a, b, result)
+	//assert(result[2] == 1, "last element is not one", a, b, result,"pmul")
 	return result
 }
-
-/*
-console.log(mmul(unit(),unit()))
-console.log(mmul([1,0,0,0,1,0,0,0,1],[0,-1,0,-1,0,0,0,0,1]))
-console.log(pmul(unit(),[1,1,1]))
-*/
-
-assert(true, )
 
 
 

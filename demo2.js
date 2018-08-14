@@ -26,9 +26,9 @@ got.print()
 while(true){
 	sleep(500)
 	console.log("x:",round(alpha[0]),"y:",round(alpha[1]),"alpha:",alpha)
-	got.set(round(alpha[0]),round(alpha[1])," ")
+	got.set(round(alpha[0]),(round(alpha[1])-sun[1])/2+sun[1]," ")
 	alpha = m3.pmul(m3.rotp(pi/17,sun),alpha)
 	console.log("next pos at:",alpha)
-	got.set(round(alpha[0]),round(alpha[1]),"I")
+	got.set(round(alpha[0]),(round(alpha[1])-sun[1])/2+sun[1],"I")
 	got.print()
 }
