@@ -1,8 +1,10 @@
 "use strict";
+
 var m3 = require('./m3.js')
 var assert = require('./assert.js').assert
 var round = Math.round
 var util = require('util')
+
 function render(p,node,buf,test){
 	var xy = m3.mmul(m3.mmul(m3.mmul(p,m3.rot(node.rot)),m3.scale(node.scale,node.scale)),m3.move(node.x,node.y))
 	node.pmat = xy
@@ -14,6 +16,7 @@ function render(p,node,buf,test){
 	//console.log(xy)
 }
 exports.render = render;
+
 function renderall(stacknode,buf,pmat){
 	render(pmat,stacknode,buf,false)
 	for(var idx = 0; idx < stacknode.child.length; idx ++){
@@ -23,8 +26,8 @@ function renderall(stacknode,buf,pmat){
 }
 exports.renderall = renderall;
 
-exports.nodeinit = function(x,y,scale,rot,char,children,xy){
-	return {x:x,y:y,scale:scale,rot:rot,char:char,child:children,pmat:xy}
+exports.nodeinit = function(x,y,scale,rot,char,children){
+	return {x:x,y:y,scale:scale,rot:rot,char:char,child:children,pmat:m3.unit()}
 }
 
 exports.makebuffer = function(width,height,char) {
