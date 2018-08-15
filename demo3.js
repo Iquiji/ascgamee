@@ -10,9 +10,9 @@ var pi = Math.PI
 
 var got = graphx.makebuffer(process.stdout.columns,process.stdout.rows," ")
 
-var sun = {x:process.stdout.columns/2,y:process.stdout.rows/2,scale:1,rot:0,char:"X",parent:[1,0,0,0,1,0,0,0,1]}
+var sun = {x:process.stdout.columns/2,y:process.stdout.rows/2,scale:1,rot:0,char:"X",child:[]}
 var findsun = [1,0,process.stdout.columns/2,0,1,process.stdout.rows/2,0,0,1]
-var alpha = {x:10,y:0,scale:1,rot:0,char:"I",parent:[1,0,0,0,1,0,0,0,1]}
+var alpha = graphx.nodeinit(10,0,1,0,"I",[])
 
 graphx.render([1,0,0,0,1,0,0,0,1],sun,got,false)
 while(true){

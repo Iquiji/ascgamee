@@ -19,7 +19,7 @@ function mmul(a,b) {
 		a[6]*b[1] + a[7]*b[4] + a[8]*b[7],
 		a[6]*b[2] + a[7]*b[5] + a[8]*b[8],
 	];
-	//assert(ret[8] == 1, "last mmul result element is not one", a, b, ret,"mmul");
+	assert(ret[8] == 1, "last mmul result element is not one", a, b, ret,"mmul");
 	return ret;
 }
 exports.mmul = mmul;
@@ -27,8 +27,8 @@ exports.mmul = mmul;
 exports.unit = function unit() {
 	return [1,0,0, 0,1,0, 0,0,1]
 }
-exports.scale = function scale(k){
-	return [k,0,0,0,k,0,0,0,1]
+exports.scale = function scale(x,y){
+	return [x,0,0,0,y,0,0,0,1]
 }
 
 function move(x,y){
