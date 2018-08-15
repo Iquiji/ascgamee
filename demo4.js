@@ -13,10 +13,10 @@ var got = graphx.makebuffer(process.stdout.columns,process.stdout.rows," ")
 var mond1 = graphx.nodeinit(2,0,1,0,".",[],m3.unit())
 var mond2 = graphx.nodeinit(3,0,1,1,".",[],m3.unit())
 var beta = graphx.nodeinit(30,0,1,0.5,"B",[],m3.unit())
-var alpha = graphx.nodeinit(7,0,1,0,"A",[mond1,mond2],m3.unit())
+var alpha = graphx.nodeinit(7,0,1,0,"A",[mond1,mond2],m3.scale(1,1))
 var gamma = graphx.nodeinit(14,0,1,0,"G",[],m3.unit())
 var delta = graphx.nodeinit(36,0,1,0,"D",[],m3.scale(1,1))
-var sun = {x:0,y:0,scale:1,rot:0,char:"S",child:[alpha,beta,gamma,delta],pmat:m3.scale(1,1)}
+var sun = graphx.nodeinit(0,0,1,0,"S",[alpha,beta,gamma,delta],m3.unit())
 
 
 function update(){
@@ -31,4 +31,4 @@ function update(){
 	graphx.renderall(sun,got,m3.mmul(m3.scale(1,0.5),m3.move(process.stdout.columns/2,process.stdout.rows)))
 	got.print()
 }
-setInterval(update,1000/30)
+setInterval(update,1000/25)
