@@ -20,7 +20,7 @@ var sun = {x:0,y:0,scale:1,rot:0,char:"S",child:[alpha,beta,gamma,delta],pmat:m3
 
 
 function update(){
-	//sleep(1000/30)
+	sleep(1000/30)
 	got.clear()
 	alpha.rot += pi/25
 	beta.rot -= pi/200
@@ -31,4 +31,4 @@ function update(){
 	graphx.renderall(sun,got,m3.mmul(m3.scale(1,0.5),m3.move(process.stdout.columns/2,process.stdout.rows)))
 	got.print()
 }
-setInterval(update,1000/30)
+//setInterval(update,1000/30)
