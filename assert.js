@@ -1,3 +1,5 @@
+"use strict";
+
 function assert() {
 	if (!arguments[0]) {
 		console.log("Assertion failed: ", arguments)

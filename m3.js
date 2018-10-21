@@ -3,8 +3,9 @@
 var cos = Math.cos
 var sin = Math.sin
 var pi = Math.PI
+
 var assert = require('./assert.js').assert
-var m3_test = require('./assert.js')
+
 function mmul(a,b) {
 	var ret = [
 		a[0]*b[0] + a[1]*b[3] + a[2]*b[6],
